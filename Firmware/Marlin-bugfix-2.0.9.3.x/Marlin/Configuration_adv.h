@@ -927,7 +927,7 @@
   // If not defined, probe limits will be used.
   // Override with 'M422 S<index> X<pos> Y<pos>'
   //#define Z_STEPPER_ALIGN_XY { {  10, 190 }, { 100,  10 }, { 190, 190 } }
-  #define Z_STEPPER_ALIGN_XY { {  50, 155 }, { 280,  155 } } //EMH
+  #define Z_STEPPER_ALIGN_XY { {  50, 165 }, { 280,  165 } } //EMH
 
   /**
    * Orientation for the automatically-calculated probe positions.
@@ -985,7 +985,7 @@
 #if ENABLED(ASSISTED_TRAMMING)
 
   // Define positions for probe points.
-  #define TRAMMING_POINT_XY { {  50, 50 }, { 165,  50 }, { 280,  50 }, { 280, 260 }, { 165, 260 }, { 50, 260 } }  //EMH
+  #define TRAMMING_POINT_XY { {  50, 50 }, { 165,  50 }, { 280,  50 }, { 280, 280 }, { 165, 280 }, { 50, 280 } }  //EMH
 
   // Define position names for probe points.
   #define TRAMMING_POINT_NAME_1 "Front-Left"   //EMH
