@@ -1622,7 +1622,7 @@
   //#define LONG_FILENAME_WRITE_SUPPORT   // Create / delete files with long filenames via M28, M30, and Binary Transfer Protocol
   //#define M20_TIMESTAMP_SUPPORT         // Include timestamps by adding the 'T' flag to M20 commands
 
-  //#define SCROLL_LONG_FILENAMES         // Scroll long filenames in the SD card menu
+  #define SCROLL_LONG_FILENAMES         // Scroll long filenames in the SD card menu
 
   //#define SD_ABORT_NO_COOLDOWN          // Leave the heaters on after Stop Print (not recommended!)
 
@@ -2879,7 +2879,7 @@
   #if AXIS_IS_TMC(Z)
     #define Z_CURRENT       850 //EMH (1500Ma * 0.9)/1.414 => max 954 (new geared z so lower to 850)
     #define Z_CURRENT_HOME  Z_CURRENT
-    #define Z_MICROSTEPS    32 //EMH
+    #define Z_MICROSTEPS    32 //EMH with the geared Z stepper, 32 is more than enough
     #define Z_RSENSE          0.11
     #define Z_CHAIN_POS      -1
     //#define Z_INTERPOLATE  true
