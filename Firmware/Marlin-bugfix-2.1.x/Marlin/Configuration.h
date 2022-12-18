@@ -139,7 +139,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "TRONXY X5SA 330-M" //EMH
+#define CUSTOM_MACHINE_NAME "TRONXY X5SA 330-M3" //EMH
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -1490,7 +1490,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 47.0, -33.0, -2.980 } //EMH
+#define NOZZLE_TO_PROBE_OFFSET { 43.0, -31.5, -2.00 } //EMH
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1705,7 +1705,7 @@
 #define Y_BED_SIZE 330 //EMH
 
 // Travel limits (linear=mm, rotational=°) after homing, corresponding to endstop positions.
-#define X_MIN_POS -2   //EMH
+#define X_MIN_POS -3   //EMH
 #define Y_MIN_POS 0   //EMH
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE //EMH
