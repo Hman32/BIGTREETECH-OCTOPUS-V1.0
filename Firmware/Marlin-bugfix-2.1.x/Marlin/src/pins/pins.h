@@ -743,7 +743,7 @@
 #elif MB(BTT_OCTOPUS_V1_1)
   #include "stm32f4/pins_BTT_OCTOPUS_V1_1.h"        // STM32F4                              env:STM32F446ZE_btt env:STM32F446ZE_btt_USB env:STM32F429ZG_btt env:STM32F429ZG_btt_USB env:STM32F407ZE_btt env:STM32F407ZE_btt_USB
 #elif MB(BTT_OCTOPUS_PRO_V1_0)
-  #include "stm32f4/pins_BTT_OCTOPUS_PRO_V1_0.h"    // STM32F4                              env:STM32F446ZE_btt env:STM32F446ZE_btt_USB env:STM32F429ZG_btt env:STM32F429ZG_btt_USB env:STM32H723ZE_btt
+  #include "stm32f4/pins_BTT_OCTOPUS_PRO_V1_0.h"    // STM32F4                              env:STM32F446ZE_btt env:STM32F446ZE_btt_USB env:STM32F429ZG_btt env:STM32F429ZG_btt_USB
 #elif MB(LERDGE_K)
   #include "stm32f4/pins_LERDGE_K.h"                // STM32F4                              env:LERDGEK env:LERDGEK_usb_flash_drive
 #elif MB(LERDGE_S)
@@ -823,6 +823,8 @@
   #include "stm32h7/pins_BTT_SKR_V3_0_EZ.h"         // STM32H7                              env:STM32H743VI_btt env:STM32H723VG_btt
 #elif MB(BTT_OCTOPUS_MAX_EZ_V1_0)
   #include "stm32h7/pins_BTT_OCTOPUS_MAX_EZ.h"      // STM32H7                              env:STM32H723ZE_btt
+#elif MB(BTT_OCTOPUS_PRO_V1_0_1)
+  #include "stm32h7/pins_BTT_OCTOPUS_PRO_V1_0_1.h"  // STM32H7                              env:STM32H723ZE_btt
 #elif MB(BTT_OCTOPUS_PRO_V1_1)
   #include "stm32h7/pins_BTT_OCTOPUS_PRO_V1_1.h"    // STM32H7                              env:STM32H723ZE_btt
 #elif MB(TEENSY41)
