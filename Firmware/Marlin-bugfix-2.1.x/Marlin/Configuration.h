@@ -108,7 +108,7 @@
  * Currently Ethernet (-2) is only supported on Teensy 4.1 boards.
  * :[-2, -1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT_2 -1  //EMH
+#define SERIAL_PORT_2 3  //EMH
 #define BAUDRATE_2 250000 //EMH :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
 
 /**
@@ -116,14 +116,14 @@
  * Currently only supported for AVR, DUE, LPC1768/9 and STM32/STM32F1
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT_3 3   //EMH
+#define SERIAL_PORT_3 -1   //EMH
 #define BAUDRATE_3 250000 //EMH :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000] Enable to override BAUDRATE
 
 // Enable the Bluetooth serial interface on AT90USB devices
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "TRONXY X5SA 330-M" //EMH
+#define CUSTOM_MACHINE_NAME "TRONXY X5SA 330-MP6" //EMH
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -1130,7 +1130,7 @@
   //#define ENDSTOPPULLUP_UMAX
   //#define ENDSTOPPULLUP_VMAX
   //#define ENDSTOPPULLUP_WMAX
-  //#define ENDSTOPPULLUP_ZMIN_PROBE
+  #define ENDSTOPPULLUP_ZMIN_PROBE     //EMH for Microprobe
 #endif
 
 // Enable pulldown for all endstops to prevent a floating state
@@ -1166,7 +1166,7 @@
 #define X_MAX_ENDSTOP_HIT_STATE HIGH
 #define Y_MIN_ENDSTOP_HIT_STATE LOW  //EMH Set to HIGH for sensorless
 #define Y_MAX_ENDSTOP_HIT_STATE HIGH
-#define Z_MIN_ENDSTOP_HIT_STATE HIGH //EMH Set to LOW for SENSOR and HIGH for BLTOUCH
+#define Z_MIN_ENDSTOP_HIT_STATE LOW //EMH Set to LOW for SENSOR or Microprobe V2 and HIGH for BLTOUCH
 #define Z_MAX_ENDSTOP_HIT_STATE HIGH
 #define I_MIN_ENDSTOP_HIT_STATE HIGH
 #define I_MAX_ENDSTOP_HIT_STATE HIGH
@@ -1180,7 +1180,7 @@
 #define V_MAX_ENDSTOP_HIT_STATE HIGH
 #define W_MIN_ENDSTOP_HIT_STATE HIGH
 #define W_MAX_ENDSTOP_HIT_STATE HIGH
-#define Z_MIN_PROBE_ENDSTOP_HIT_STATE HIGH //EMH Set to LOW for SENSOR and HIGH for BLTOUCH
+#define Z_MIN_PROBE_ENDSTOP_HIT_STATE LOW //EMH Set to LOW for SENSOR or Microprobe V2 and HIGH for BLTOUCH 
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
@@ -1334,10 +1334,10 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN //EMH // Enable this if we use a SENSOR
+#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN //EMH Enable this if we use a SENSOR or Microprobe
 
 // Force the use of the probe for Z-axis homing
-#define USE_PROBE_FOR_Z_HOMING //EMH
+#define USE_PROBE_FOR_Z_HOMING //EMH Used by BLTouch or Microprobe
 
 /**
  * Z_MIN_PROBE_PIN
@@ -1352,7 +1352,7 @@
  *    - Normally-closed (NC) also connect to GND.
  *    - Normally-open (NO) also connect to 5V.
  */
-//#define Z_MIN_PROBE_PIN -1
+//#define Z_MIN_PROBE_PIN -1  //EMH for Microprobe, PB7 otherwise it default to proximity port
 
 /**
  * Probe Type
@@ -1372,7 +1372,7 @@
  * A Fix-Mounted Probe either doesn't deploy or needs manual deployment.
  *   (e.g., an inductive probe or a nozzle-based probe-switch.)
  */
-//#define FIX_MOUNTED_PROBE //EMH
+#define FIX_MOUNTED_PROBE //EMH for Microprobe
 
 /**
  * Use the nozzle as the probe, as with a conductive
@@ -1394,7 +1394,7 @@
 /**
  * The BLTouch probe uses a Hall effect sensor and emulates a servo.
  */
-#define BLTOUCH //EMH
+//#define BLTOUCH //EMH for BLTouch
 
 /**
  * MagLev V4 probe by MDD
@@ -1546,7 +1546,8 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 43.0, -31.5, -2.00 } //EMH
+//#define NOZZLE_TO_PROBE_OFFSET { 43.0, -31.5, -2.00 } //EMH for BLTouch
+#define NOZZLE_TO_PROBE_OFFSET { -40.0, 0, -2.00 } //EMH for Microprobe
 
 // Enable and set to use a specific tool for probing. Disable to allow any tool.
 #define PROBING_TOOL 0
@@ -1598,9 +1599,9 @@
  * Probe Enable / Disable
  * The probe only provides a triggered signal when enabled.
  */
-//#define PROBE_ENABLE_DISABLE
+#define PROBE_ENABLE_DISABLE     //EMH for Microprobe
 #if ENABLED(PROBE_ENABLE_DISABLE)
-  //#define PROBE_ENABLE_PIN -1   // Override the default pin here
+  #define PROBE_ENABLE_PIN SERVO0_PIN   //EMH for Microprobe, Override the default pin here
 #endif
 
 /**
@@ -1787,7 +1788,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 395 //EMH
+#define Z_MAX_POS 410 //EMH
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
