@@ -23,6 +23,8 @@
 
 #define BOARD_INFO_NAME "OCTOPUS PRO V1.0.1"
 
+#include "pins_BTT_OCTOPUS_PRO_V1_common.h"
+
 //
 // Steppers
 //
@@ -33,8 +35,6 @@
 //
 #define HEATER_0_PIN                        PA2   // Heater0
 #define HEATER_2_PIN                        PB10  // Heater2
-
-#include "pins_BTT_OCTOPUS_PRO_V1_common.h"
 
 //
 // NeoPixel LED
